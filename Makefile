@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -Wextra
 
-all: prog1 prog2 process wait_waitpid_demo prog5 fifo_server fifo_client signal_handler
+all: prog1 prog2 process wait_waitpid_demo prog5 fifo_server fifo_client signal_handler prog7_linuxaddr memory_demo
 
 prog1: prog1.c
 	$(CC) $(CFLAGS) -o prog1 prog1.c
@@ -27,5 +27,11 @@ fifo_client: fifo_client.c
 signal_handler: signal_handler.c
 	$(CC) $(CFLAGS) -o signal_handler signal_handler.c
 
+prog7_linuxaddr: prog7_linuxaddr.c
+	$(CC) $(CFLAGS) -g -o prog7_linuxaddr prog7_linuxaddr.c
+
+memory_demo: memory_demo.c
+	$(CC) $(CFLAGS) -g -o memory_demo memory_demo.c
+
 clean:
-	rm -f prog1 prog2 process wait_waitpid_demo prog5 fifo_server fifo_client signal_handler
+	rm -f prog1 prog2 process wait_waitpid_demo prog5 fifo_server fifo_client signal_handler prog7_linuxaddr memory_demo
