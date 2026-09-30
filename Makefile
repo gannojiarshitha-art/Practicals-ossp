@@ -13,5 +13,8 @@ process: process.c
 wait_waitpid_demo: wait_waitpid_demo.c
 	$(CC) $(CFLAGS) -o wait_waitpid_demo wait_waitpid_demo.c
 
+prog5: prog5.c
+	$(CC) $(CFLAGS) -o prog5 prog5.c
+
 clean:
-	rm -f prog1 prog2 process wait_waitpid_demo
+	rm -f prog1 prog2 process wait_waitpid_demo prog5
