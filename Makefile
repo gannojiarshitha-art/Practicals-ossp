@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -Wextra
 
-all: prog1 prog2 process wait_waitpid_demo prog5 fifo_server fifo_client signal_handler prog7_linuxaddr memory_demo dynamic_memory cow_demo
+all: prog1 prog2 process wait_waitpid_demo prog5 fifo_server fifo_client signal_handler prog7_linuxaddr memory_demo dynamic_memory cow_demo copy_lowlevel copy_stdio redirect_output redirect_input
 
 prog1: prog1.c
 	$(CC) $(CFLAGS) -o prog1 prog1.c
@@ -39,6 +39,17 @@ dynamic_memory: dynamic_memory.c
 cow_demo: cow_demo.c
 	$(CC) $(CFLAGS) -g -o cow_demo cow_demo.c
 
-clean:
-	rm -f prog1 prog2 process wait_waitpid_demo prog5 fifo_server fifo_client signal_handler prog7_linuxaddr memory_demo dynamic_memory cow_demo
+copy_lowlevel: copy_lowlevel.c
+	$(CC) $(CFLAGS) -O2 -o copy_lowlevel copy_lowlevel.c
 
+copy_stdio: copy_stdio.c
+	$(CC) $(CFLAGS) -O2 -o copy_stdio copy_stdio.c
+
+redirect_output: redirect_output.c
+	$(CC) $(CFLAGS) -g -o redirect_output redirect_output.c
+
+redirect_input: redirect_input.c
+	$(CC) $(CFLAGS) -g -o redirect_input redirect_input.c
+
+clean:
+	rm -f prog1 prog2 process wait_waitpid_demo prog5 fifo_server fifo_client signal_handler prog7_linuxaddr memory_demo dynamic_memory cow_demo copy_lowlevel copy_stdio redirect_output redirect_input
